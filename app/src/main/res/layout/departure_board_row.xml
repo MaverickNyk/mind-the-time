@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="4dp"
+    android:background="@drawable/departure_board_active_row_background"
+    android:orientation="horizontal"
+    android:paddingStart="4dp"
+    android:paddingEnd="4dp">
+
+    <TextView
+        android:id="@+id/destination_textview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fontFamily="@font/tfl_pixel_font"
+        android:shadowColor="@color/tfl_amber_glow"
+        android:shadowRadius="2.5"
+        android:textColor="@color/tfl_amber"
+        android:textSize="18sp"
+        tools:text="West Ruislip" />
+
+    <TextView
+        android:id="@+id/arrival_time_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/tfl_pixel_font"
+        android:shadowColor="@color/tfl_amber_glow"
+        android:shadowRadius="2.5"
+        android:textColor="@color/tfl_amber"
+        android:textSize="18sp"
+        tools:text="2 mins" />
+
+</LinearLayout>

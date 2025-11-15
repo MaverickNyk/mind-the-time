@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- The "glow" or "light bleed" layer. -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/tfl_amber_glow" />
+            <corners android:radius="2dp" />
+        </shape>
+    </item>
+    <!-- The sharp, main text layer, slightly smaller to create the effect -->
+    <item android:bottom="1dp" android:left="1dp" android:right="1dp" android:top="1dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/tfl_amber" />
+            <corners android:radius="1dp" />
+        </shape>
+    </item>
+</layer-list>

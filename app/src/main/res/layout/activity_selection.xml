@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        tools:context=".SelectionActivity">
+
+        <TextView
+            android:id="@+id/station_name_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/tfl_pixel_font"
+            android:shadowColor="@color/tfl_amber_glow"
+            android:shadowRadius="2.5"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="King's Cross St. Pancras"
+            tools:visibility="visible" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/transport_mode_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Mode of Transport"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/station_name_header">
+
+            <AutoCompleteTextView
+                android:id="@+id/transport_mode_dropdown"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/stop_point_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Station"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/transport_mode_layout"
+            tools:visibility="visible">
+
+            <AutoCompleteTextView
+                android:id="@+id/stop_point_dropdown"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/line_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Line"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/stop_point_layout"
+            tools:visibility="visible">
+
+            <AutoCompleteTextView
+                android:id="@+id/line_dropdown"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/towards_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Direction"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/line_layout"
+            tools:visibility="visible">
+
+            <AutoCompleteTextView
+                android:id="@+id/towards_dropdown"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:id="@+id/departure_board"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/departure_board_unlit_background"
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/towards_layout"
+            tools:visibility="visible">
+
+            <TextView
+                android:id="@+id/board_line_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/tfl_pixel_font"
+                android:shadowColor="@color/tfl_amber_glow"
+                android:background="@drawable/departure_board_active_row_background"
+                android:shadowRadius="2.5"
+                android:textColor="@color/tfl_amber"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:text="Piccadilly Line" />
+
+            <TextView
+                android:id="@+id/board_platform_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/tfl_pixel_font"
+                android:shadowColor="@color/tfl_amber_glow"
+                android:background="@drawable/departure_board_active_row_background"
+                android:shadowRadius="2.5"
+                android:textColor="@color/tfl_amber"
+                android:textSize="16sp"
+                tools:text="Platform 1 Eastbound" />
+
+            <LinearLayout
+                android:id="@+id/departure_board_rows_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+            <TextView
+                android:id="@+id/clock_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/tfl_pixel_font"
+                android:shadowColor="@color/tfl_amber_glow"
+                android:background="@drawable/departure_board_active_row_background"
+                android:shadowRadius="2.5"
+                android:textColor="@color/tfl_amber"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:text="20:50:06" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
