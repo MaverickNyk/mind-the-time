@@ -166,10 +166,10 @@ class SelectionActivity : AppCompatActivity() {
             .sortedBy { it.timeToStation }
             .take(3)
 
-        val platformName = filteredArrivals.firstOrNull()?.platformName
+        val stationName = selection.station?.stationName ?: return
 
         withContext(Dispatchers.Main) {
-            departureBoard.update(lineId, platformName, filteredArrivals)
+            departureBoard.update(lineId, stationName, filteredArrivals)
             departureBoard.show()
         }
     }

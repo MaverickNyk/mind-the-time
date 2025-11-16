@@ -25,7 +25,8 @@ class DepartureBoardActivity(private val view: View) {
 
     private val context: Context = view.context
     private val lineNameTextView: TextView = view.findViewById(R.id.board_line_name)
-    private val platformNameTextView: TextView = view.findViewById(R.id.board_platform_name)
+    private val dateTextView: TextView = view.findViewById(R.id.board_date_textview)
+    private val stationNameTextView: TextView = view.findViewById(R.id.board_station_name)
     private val rowsContainer: LinearLayout = view.findViewById(R.id.departure_board_rows_container)
     private val clockTextView: TextView = view.findViewById(R.id.clock_textview)
     private var clockJob: Job? = null
@@ -46,10 +47,11 @@ class DepartureBoardActivity(private val view: View) {
      * @param platformName The platform name to display.
      * @param predictions The list of arrival predictions.
      */
-    fun update(lineName: String, platformName: String?, predictions: List<Prediction>) {
+    fun update(lineName: String, stationName: String?, predictions: List<Prediction>) {
         lineNameTextView.text = "$lineName Line"
-        platformNameTextView.text = platformName ?: ""
-        platformNameTextView.visibility = if (platformName.isNullOrBlank()) View.GONE else View.VISIBLE
+        stationNameTextView.text = stationName ?: ""
+        stationNameTextView.visibility = if (stationName.isNullOrBlank()) View.GONE else View.VISIBLE
+        dateTextView.text = SimpleDateFormat("EEE dd MMM", Locale.getDefault()).format(Date())
 
         rowsContainer.removeAllViews()
 

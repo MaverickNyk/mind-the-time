@@ -24,9 +24,10 @@ class StopPointDeserializer : JsonDeserializer<StopPoint> {
 
         val id = jsonObject.get("id")?.asString ?: throw JsonParseException("StopPoint missing 'id'")
         val stopType = jsonObject.get("stopType")?.asString ?: throw JsonParseException("StopPoint missing 'stopType'")
-        
+
         // Clean the station name directly, as you suggested.
-        val cleanedStationName = cleanStationName(jsonObject.get("commonName")?.asString)
+//        val cleanedStationName = cleanStationName(jsonObject.get("commonName")?.asString)
+        val cleanedStationName = jsonObject.get("commonName")?.asString ?:"Undefined Station"
 
         if (cleanedStationName.isEmpty()) {
             throw JsonParseException("Station name is empty or missing")
