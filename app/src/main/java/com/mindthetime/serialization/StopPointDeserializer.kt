@@ -9,14 +9,14 @@ import java.lang.reflect.Type
 
 class StopPointDeserializer : JsonDeserializer<StopPoint> {
 
-    private fun cleanStationName(name: String?): String {
+/*    private fun cleanStationName(name: String?): String {
         if (name.isNullOrEmpty()) return ""
         return name.replace("Underground Station", "")
             .replace("DLR Station", "")
             .replace("Rail Station", "")
             .replace("TEST", "")
             .trim()
-    }
+    }*/
 
     @Throws(JsonParseException::class)
     override fun deserialize(json: JsonElement, typeOfT: Type, context: JsonDeserializationContext): StopPoint {

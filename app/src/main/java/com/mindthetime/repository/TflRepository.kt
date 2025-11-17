@@ -5,8 +5,8 @@ import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonElement
-import com.google.gson.JsonSyntaxException
 import com.google.gson.reflect.TypeToken
+import com.mindthetime.model.LineStatus
 import com.mindthetime.model.Prediction
 import com.mindthetime.model.StopPoint
 import com.mindthetime.model.StopPointResponse
@@ -101,7 +101,6 @@ class TflRepository(private val context: Context) {
         return emptyList()
     }
 
-
     suspend fun getArrivals(stopPointId: String): List<Prediction> {
         try {
             val response = ApiClient.apiService.getArrivals(stopPointId)
@@ -110,6 +109,18 @@ class TflRepository(private val context: Context) {
             }
         } catch (e: Exception) {
             Log.e("TflRepository", "API Exception for arrivals", e)
+        }
+        return emptyList()
+    }
+
+    suspend fun getLineStatus(mode: String): List<LineStatus> {
+        try {
+            val response = ApiClient.apiService.getLineStatus(mode)
+            if (response.isSuccessful) {
+                return response.body() ?: emptyList()
+            }
+        } catch (e: Exception) {
+            Log.e("TflRepository", "API Exception for line status", e)
         }
         return emptyList()
     }

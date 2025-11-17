@@ -1,5 +1,6 @@
 package com.mindthetime.network
 
+import com.mindthetime.model.LineStatus
 import com.mindthetime.model.Prediction
 import okhttp3.ResponseBody
 import retrofit2.Response
@@ -20,6 +21,12 @@ interface ApiService {
         @Path("id") id: String,
         @Query("app_key") appKey: String = API_KEY
     ): Response<List<Prediction>>
+
+    @GET("Line/Mode/{mode}/Status")
+    suspend fun getLineStatus(
+        @Path("mode") mode: String,
+        @Query("app_key") appKey: String = API_KEY
+    ): Response<List<LineStatus>>
 
     companion object {
         const val BASE_URL = "https://api.tfl.gov.uk/"

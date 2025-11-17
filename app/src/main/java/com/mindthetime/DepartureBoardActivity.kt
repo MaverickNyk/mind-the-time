@@ -1,6 +1,5 @@
 package com.mindthetime
 
-
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -18,9 +17,6 @@ import java.util.Date
 import java.util.Locale
 import java.util.concurrent.TimeUnit
 
-/**
- * Manages the UI and logic for the entire departure board, including headers, rows, and the clock.
- */
 class DepartureBoardActivity(private val view: View) {
 
     private val context: Context = view.context
@@ -41,12 +37,6 @@ class DepartureBoardActivity(private val view: View) {
         stopClock()
     }
 
-    /**
-     * Clears and populates the departure board with new data.
-     * @param lineName The name of the line to display.
-     * @param platformName The platform name to display.
-     * @param predictions The list of arrival predictions.
-     */
     fun update(lineName: String, stationName: String?, predictions: List<Prediction>) {
         lineNameTextView.text = "$lineName Line"
         stationNameTextView.text = stationName ?: ""
@@ -69,7 +59,7 @@ class DepartureBoardActivity(private val view: View) {
             val destinationTextView = rowView.findViewById<TextView>(R.id.destination_textview)
             val arrivalTimeTextView = rowView.findViewById<TextView>(R.id.arrival_time_textview)
 
-            val destination = "${index + 1} ${prediction.destinationName?.replace("Underground Station", "")?.trim() ?: ""}"
+            val destination = "${index + 1} ${prediction.towards?.replace("Underground Station", "")?.trim() ?: ""}"
             val minutes = TimeUnit.SECONDS.toMinutes(prediction.timeToStation.toLong())
             val timeText = if (minutes <= 0) "Now" else "$minutes mins"
 

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/departure_board"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/departure_board_unlit_background"
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/board_line_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/tfl_pixel_font"
+                android:shadowColor="@color/tfl_amber_glow"
+                android:background="@drawable/departure_board_active_row_background"
+                android:shadowRadius="2.5"
+                android:textColor="@color/tfl_amber"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:text="Piccadilly Line" />
+
+            <TextView
+                android:id="@+id/board_date_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:fontFamily="@font/tfl_pixel_font"
+                android:shadowColor="@color/tfl_amber_glow"
+                android:background="@drawable/departure_board_active_row_background"
+                android:shadowRadius="2.5"
+                android:textColor="@color/tfl_amber"
+                android:textSize="16sp"
+                tools:text="Sun 12 Nov" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/board_station_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/tfl_pixel_font"
+            android:shadowColor="@color/tfl_amber_glow"
+            android:background="@drawable/departure_board_active_row_background"
+            android:shadowRadius="2.5"
+            android:textColor="@color/tfl_amber"
+            android:textSize="16sp"
+            tools:text="King's cross St Pancras" />
+
+        <LinearLayout
+            android:id="@+id/departure_board_rows_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+        <com.mindthetime.ui.LineStatusView
+            android:id="@+id/line_status_view"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/departure_board_active_row_background"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/clock_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="2dp"
+            android:fontFamily="@font/tfl_pixel_font"
+            android:shadowColor="@color/tfl_amber_glow"
+            android:background="@drawable/departure_board_active_row_background"
+            android:shadowRadius="2.5"
+            android:textColor="@color/tfl_amber"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:text="20:50:06" />
+    </LinearLayout>
